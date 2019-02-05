@@ -2,7 +2,7 @@
 
 # Importing the libraries
 from flask import Flask, render_template, request
-from flask_cores import CORS # for security precautions
+from flask_cors import CORS # for security precautions
 
 # Server object
 app = Flask(__name__)

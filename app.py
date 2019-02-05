@@ -5,6 +5,9 @@ from flask import Flask, render_template, request
 # for security precautions cors library
 from flask_cors import CORS
 
+# Import models
+from models import create_post, get_posts
+
 # Server object
 app = Flask(__name__)
 
@@ -15,7 +18,7 @@ def index():
 	if request.method == 'GET':
 		pass
 
-	elif request.methods == 'POST':
+	if request.method == 'POST':
 		name = request.form.get('name')
 		post = request.form.get('post')
 
@@ -23,7 +26,7 @@ def index():
 
 	posts = get_posts()
 
-	return render_template('index.html', posts = posts)
+	return render_template('index.html', posts=posts)
 
 
 

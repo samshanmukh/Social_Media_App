@@ -1,6 +1,7 @@
 """ Model file."""
 
-import sqlite3
+import sqlite3 as sql
+from os import path
 
 ROOT = path.dirname(path.relpath((__file__)))
 
@@ -13,7 +14,7 @@ def create_post(name, content):
 	cur = con.cursor()
 
 	# Insert values into table
-	cur.execute('insert into posts (name, content) values(?, ?)', name, content)
+	cur.execute('insert into posts(name, content) values(?, ?)', (name, content))
 
 	# Closing the connection
 	con.commit()
